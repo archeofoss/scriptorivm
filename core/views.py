@@ -109,12 +109,11 @@ def get_items(request):
 
 	ret = {}
 
-	#@STEKOSTEKO inseririe qui \/ la url su zotero
-	base_url = ""
+	base_url = "https://api.zotero.org/users/360979/searches/?tag={}&format=atom"
 
 	for name in names:
 		if base_url != "":
-				r = requests.get(base_url+"?tag=%s" % name).json
+				r = requests.get(base_url.format(name)).json
 		else:
 				r = {}
 
